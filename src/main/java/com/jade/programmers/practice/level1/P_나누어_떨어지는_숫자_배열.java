@@ -1,8 +1,7 @@
 package com.jade.programmers.practice.level1;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * 문제 주소 - https://programmers.co.kr/learn/courses/30/lessons/12910
@@ -18,16 +17,10 @@ import java.util.List;
  */
 public class P_나누어_떨어지는_숫자_배열 {
     public int[] solution(int[] arr, int divisor) {
-        List<Integer> list = new ArrayList<>();
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % divisor == 0) {
-                list.add(arr[i]);
-            }
-        }
-
-        if(list.isEmpty()) return new int[]{-1};
-
-        return list.stream().sorted().mapToInt(v -> v).toArray();
+        int[] result = Arrays.stream(arr)
+                .filter(x -> x % divisor == 0)
+                .sorted()
+                .toArray();
+        return result.length == 0 ? new int[]{-1} : result;
     }
 }
