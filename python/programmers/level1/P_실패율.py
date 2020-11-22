@@ -33,7 +33,7 @@ def solution(N, stages):
     s = sorted(new_dict.items(), key=lambda x: x[1], reverse=True)
     answer = []
     for i in s:
-        answer.append(i[0] + 1);
+        answer.append(i[0] + 1)
     return answer
 
 
