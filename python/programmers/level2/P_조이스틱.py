@@ -10,26 +10,25 @@ def countOfUpAndDown(name):
 
 
 def checkAllVisited(visited):
-    for i in range(len(visited)):
-        if not visited[i]:
+    for v in visited:
+        if not v:
             return False
     return True
 
 
 def calcMoves(reverseIndex, name):
-    visited = []
-    for i in name:
-        visited.append(i == 'A')
-
+    visited = [i == 'A' for i in name]
     index = 0
     inc = 1
     count = 0
     while True:
         count += 1
+        visited[index] = True
+
         if index == reverseIndex:
             inc = -1
-        visited[index] = True
         index += inc
+
         if index < 0:
             index = len(visited) - 1
 
@@ -40,10 +39,7 @@ def calcMoves(reverseIndex, name):
 
 
 def countOfMoves(name):
-    moves = []
-    for i in range(len(name)):
-        moves.append(calcMoves(i, name))
-    return min(moves)
+    return min([calcMoves(i, name) for i in range(len(name))])
 
 
 def solution(name):
