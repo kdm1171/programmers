@@ -20,15 +20,15 @@
 
 # 가로가 세로보다 길다.
 def findCandidates(brown):
-    cantidates = []
+    candidates = []
     b = brown + 4
     height = 6
     width = b - height
     while width >= height:
-        cantidates.append((int(width / 2), int(height / 2)))
+        candidates.append((int(width / 2), int(height / 2)))
         height += 2
         width -= 2
-    return cantidates
+    return candidates
 
 
 def solution(brown, yellow):
