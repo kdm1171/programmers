@@ -1,9 +1,11 @@
 # https://programmers.co.kr/learn/courses/30/lessons/17684
+import string
+
 
 def initDict():
     dictionary = {}
     for i in range(26):
-        dictionary[chr((i + 65))] = i + 1
+        dictionary[string.ascii_uppercase[i]] = i + 1
     return dictionary
 
 
